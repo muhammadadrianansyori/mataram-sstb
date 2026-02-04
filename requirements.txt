@@ -1,0 +1,9 @@
+streamlit
+geemap
+earthengine-api
+folium
+branca
+plotly
+pandas
+openpyxl
+pydeck

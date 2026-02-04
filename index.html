@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mataram SSTB - Field Verification</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-area">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-logo"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5V21"/></svg>
+                <h1>Mataram SSTB</h1>
+            </div>
+            <p class="subtitle">Spatio-Temporal Building Monitoring</p>
+        </header>
+
+        <form id="verificationForm" class="verification-form">
+            <!-- Section 1: Project Metadata -->
+            <section class="form-section">
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/></svg>
+                    <h2>Satellite Metadata</h2>
+                </div>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="satRefId">Satellite Reference ID</label>
+                        <input type="text" id="satRefId" readonly class="readonly-input">
+                    </div>
+                    <div class="input-group">
+                        <label for="detectTime">Detection Timestamp</label>
+                        <input type="text" id="detectTime" readonly class="readonly-input">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Physical Verification -->
+            <section class="form-section">
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5V21"/></svg>
+                    <h2>Physical Verification</h2>
+                </div>
+                <div class="input-group">
+                    <label>Actual Structure Type</label>
+                    <div class="radio-card-group">
+                        <label class="radio-card">
+                            <input type="radio" name="structureType" value="permanent" required>
+                            <span class="card-content">
+                                <span class="card-title">Permanent Building</span>
+                                <span class="card-desc">Concrete, fixed foundation</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="structureType" value="canopy">
+                            <span class="card-content">
+                                <span class="card-title">Non-Permanent / Canopy</span>
+                                <span class="card-desc">Temporary structure, tents</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="structureType" value="artifact">
+                            <span class="card-content">
+                                <span class="card-title">False Positive / Artifact</span>
+                                <span class="card-desc">Cloud shadow, vegetation</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Dimensional Analysis (Condition) -->
+            <section class="form-section" id="dimensionalSection">
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M21 6H3"/><path d="m10 12-3-3H3"/><path d="m14 18 3-3h4"/><path d="M3 18h18"/></svg>
+                    <h2>Dimensional Analysis</h2>
+                </div>
+                <div class="input-group">
+                    <label for="footprintArea">Measured Footprint Area (m²)</label>
+                    <input type="number" id="footprintArea" placeholder="e.g., 45.5" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="expansionStatus">Floor Expansion Status</label>
+                    <select id="expansionStatus">
+                        <option value="">Select status...</option>
+                        <option value="vertical">Vertical (Added floors)</option>
+                        <option value="horizontal">Horizontal (Enlarged footprint)</option>
+                        <option value="new">New Construction</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Section 4: Visual Evidence -->
+            <section class="form-section">
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                    <h2>Visual Evidence</h2>
+                </div>
+                <div class="input-group">
+                    <label>High Angle Roof Photo</label>
+                    <div class="file-upload-wrapper">
+                        <button type="button" class="btn-secondary" id="cameraBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Capture Photo
+                        </button>
+                        <input type="file" id="roofPhoto" accept="image/*" capture="environment" hidden>
+                        <span id="fileName" class="file-name">No file selected</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Geotagged Location</label>
+                    <div class="gps-wrapper">
+                        <button type="button" class="btn-secondary" id="gpsBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-10.5-8-17a8 8 0 0 1 16 0c0 6.5-8 17-8 17z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Lock GPS Coordinates
+                        </button>
+                        <input type="text" id="gpsLocation" readonly placeholder="Waiting for lock..." class="readonly-input">
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit" class="btn-primary">Submit Verification</button>
+        </form>
+    </div>
+    <script src="js/logic.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
