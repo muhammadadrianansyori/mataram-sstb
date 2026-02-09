@@ -1,9 +1,16 @@
 streamlit
-geemap
 earthengine-api
+geemap
 folium
-branca
-plotly
+geopandas
 pandas
+plotly
 openpyxl
-pydeck
+shapely
+# AI Dependencies
+transformers
+torch
+torchvision
+Pillow
+numpy
+google-auth
